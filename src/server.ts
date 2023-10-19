@@ -1,9 +1,12 @@
 import express from "express";
+import cors from "cors";
 import { sequelize } from "./database";
 import { adminJsRouter, adminjs } from "./adminjs";
 import { router } from "./routes";
 
 const app = express();
+
+app.use(cors());
 
 app.use(express.static("public"));
 
@@ -19,5 +22,5 @@ app.listen(PORT, () => {
   sequelize.authenticate().then(() => {
     console.log("DB Connection Sucessfull");
   });
-  console.log(`Server starde sucessfuly at port ${PORT}`);
+  console.log(`Server started sucessfuly at port ${PORT}`);
 });

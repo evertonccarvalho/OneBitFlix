@@ -18,12 +18,7 @@ export const adminjs = new AdminJS({
   dashboard: dashboardOptions,
 });
 
-export const adminJsRouter = AdminJSExpress.buildAuthenticatedRouter(
-  adminjs,
-  authenticationOptions,
-  null,
-  {
-    resave: false,
-    saveUninitialized: false,
-  }
-);
+export const adminJsRouter = AdminJSExpress.buildAuthenticatedRouter(adminjs, authenticationOptions, null, {
+  resave: false,
+  saveUninitialized: false,
+});

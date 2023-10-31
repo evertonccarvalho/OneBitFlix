@@ -10,8 +10,7 @@ export const usersController = {
       const currentUser = req.user!;
       return res.json(currentUser);
     } catch (err) {
-      if (err instanceof Error)
-        return res.status(400).json({ message: err.message });
+      if (err instanceof Error) return res.status(400).json({ message: err.message });
     }
   },
 
@@ -57,15 +56,11 @@ export const usersController = {
         }
 
         if (newPassword === currentPassword) {
-          return res
-            .status(400)
-            .json({ message: "Senha igua à senha antiga!" });
+          return res.status(400).json({ message: "Senha igua à senha antiga!" });
         }
 
         await userService.updatePassword(user.id, newPassword);
-        return res
-          .status(200)
-          .json({ message: "Senha atualizada com sucesso" });
+        return res.status(204).json({ message: "Senha atualizada com sucesso" });
       });
     } catch (err) {
       if (err instanceof Error) {
@@ -83,8 +78,7 @@ export const usersController = {
       const watching = await userService.gepKeepWatchingList(id);
       return res.json(watching);
     } catch (err) {
-      if (err instanceof Error)
-        return res.status(400).json({ message: err.message });
+      if (err instanceof Error) return res.status(400).json({ message: err.message });
     }
   },
 };

@@ -22,16 +22,8 @@ router.get("/courses/:id", ensureAuth, coursesController.show);
 
 router.get("/episodes/stream", ensureAuthViaQuery, episodesController.stream);
 
-router.get(
-  "/episodes/:id/watchTime",
-  ensureAuth,
-  episodesController.getWatchTime
-);
-router.post(
-  "/episodes/:id/watchTime",
-  ensureAuth,
-  episodesController.setWatchTime
-);
+router.get("/episodes/:id/watchtime", ensureAuth, episodesController.getWatchTime);
+router.post("/episodes/:id/watchtime", ensureAuth, episodesController.setWatchTime);
 
 router.post("/favorites", ensureAuth, favoritesController.save);
 router.get("/favorites", ensureAuth, favoritesController.index);
@@ -42,11 +34,7 @@ router.delete("/likes/:id", ensureAuth, likesController.delete);
 
 router.get("/users/current", ensureAuth, usersController.show);
 router.put("/users/current", ensureAuth, usersController.update);
-router.put(
-  "/user/current/password",
-  ensureAuth,
-  usersController.updatePassword
-);
+router.put("/users/current/password", ensureAuth, usersController.updatePassword);
 router.get("/users/current/watching", ensureAuth, usersController.watching);
 
 export { router };

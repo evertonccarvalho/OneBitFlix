@@ -6,21 +6,8 @@ import path from "path";
 
 export const courseResourceOptions: ResourceOptions = {
   navigation: "Catálogo",
-  editProperties: [
-    "name",
-    "synopsis",
-    "uploadThumbnail",
-    "featured",
-    "categoryId",
-  ],
-  filterProperties: [
-    "name",
-    "synopsis",
-    "featured",
-    "categoryId",
-    "createdAt",
-    "updatedAt",
-  ],
+  editProperties: ["name", "synopsis", "uploadThumbnail", "featured", "categoryId"],
+  filterProperties: ["name", "synopsis", "featured", "categoryId", "createdAt", "updatedAt"],
   listProperties: ["id", "name", "featured", "categoryId"],
   showProperties: [
     "id",
@@ -39,13 +26,13 @@ export const courseResourceFeatures: FeatureType[] = [
     provider: {
       local: {
         bucket: path.join(__dirname, "..", "..", "..", "public"),
+        opts: {},
       },
     },
     properties: {
       key: "thumbnailUrl",
       file: "uploadThumbnail",
     },
-    uploadPath: (record, filename) =>
-      `thumbnails/course-${record.get("id")}/${filename}`,
+    uploadPath: (record, filename) => `thumbnails/course-${record.get("id")}/${filename}`,
   }),
 ];

@@ -6,22 +6,8 @@ import { FeatureType, ResourceOptions } from "adminjs";
 
 export const episodeResourceOptions: ResourceOptions = {
   navigation: "Catálogo",
-  editProperties: [
-    "name",
-    "synopsis",
-    "courseId",
-    "order",
-    "uploadVideo",
-    "secondsLong",
-  ],
-  filterProperties: [
-    "name",
-    "synopsis",
-    "courseId",
-    "secondsLong",
-    "createdAt",
-    "updatedAt",
-  ],
+  editProperties: ["name", "synopsis", "courseId", "order", "uploadVideo", "secondsLong"],
+  filterProperties: ["name", "synopsis", "courseId", "secondsLong", "createdAt", "updatedAt"],
   listProperties: ["id", "name", "courseId", "order", "secondsLong"],
   showProperties: [
     "id",
@@ -41,13 +27,13 @@ export const episodeResourceFeatures: FeatureType[] = [
     provider: {
       local: {
         bucket: path.join(__dirname, "..", "..", "..", "uploads"),
+        opts: {},
       },
     },
     properties: {
       key: "videoUrl",
       file: "uploadVideo",
     },
-    uploadPath: (record, filename) =>
-      `videos/course-${record.get("courseId")}/${filename}`,
+    uploadPath: (record, filename) => `videos/course-${record.get("courseId")}/${filename}`,
   }),
 ];

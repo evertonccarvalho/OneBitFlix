@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  api:
+    build: .
+
+    image: node:20
+    depends_on:
+      - db
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      DATABASE_URL: "postgres://postgres:postgres@db:5432/onebitflix_development"
+      NODE_ENV: "development"
+      ADMINJS_COOKIE_PASSWORD: "!@asdasd!@$%a125qwe588523"
+      JWT_KEY: "!@$%¨&*aQWQWA2sd12qw32h0"
+
+    networks:
+      - api-onebitflix
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+    ports:
+      - "49555:5432"
+
+    networks:
+      - api-onebitflix
+
+networks:
+  api-onebitflix:
+    driver: bridge

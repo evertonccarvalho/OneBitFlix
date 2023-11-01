@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts",
-    "build": "tsc",
     "start": "node ./dist/server.js",
-    "vercel-build": "npx sequelize-cli db:migrate && sequelize db:seed:all"
+    "build": "tsc",
+    "vercel-build": "sequelize-cli db:migrate && sequelize db:seed:all"
   },
   "keywords": [],
   "author": "",

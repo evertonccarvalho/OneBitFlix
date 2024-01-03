@@ -1,5 +1,8 @@
 node_modules
-node_modules
+uploads/videos/
+public/thumbnails
+dist
+build
 .vercel
 .bin
 bin

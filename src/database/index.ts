@@ -5,10 +5,4 @@ export const sequelize = new Sequelize(DATABASE_URL, {
 	define: {
 		underscored: true,
 	},
-	dialectOptions: {
-		ssl: {
-			require: true,
-			rejectUnauthorized: false, // Dependendo da configuração do servidor
-		},
-	},
 });

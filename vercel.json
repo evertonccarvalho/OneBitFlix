@@ -2,11 +2,10 @@
 	"devCommand": "npm run dev",
 	"builds": [
 		{
-			"src": "./src/serve.ts",
+			"src": "./src/server.ts",
 			"use": "@vercel/node"
 		}
 	],
-
 	"routes": [
 		{
 			"src": "/(.*)",
